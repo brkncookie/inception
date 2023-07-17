@@ -6,5 +6,5 @@ COPY ./tools/wpsetup.sh /
 
 EXPOSE 9000
 
-CMD ["wpsetup.h"]
+CMD ["/wpsetup.h"]
 
