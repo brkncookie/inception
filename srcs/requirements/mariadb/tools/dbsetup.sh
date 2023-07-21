@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "			Configuring Mariadb.."
 sed -i 's/^bind-address\s*=.*/bind-address = 0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
 
 service mariadb start
@@ -13,4 +14,5 @@ mariadb < /tmp/db.sql
 
 kill `pidof mariadbd`
 
+echo "			Starting Mariadb.."
 exec mariadbd

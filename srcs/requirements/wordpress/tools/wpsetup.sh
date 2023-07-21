@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "			Configuring Wordpress.."
 mkdir -p /var/www/html && cd /var/www/html && rm -rf *
 
 curl -o /usr/local/bin/wp https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
@@ -13,4 +14,5 @@ wp user create --allow-root ${WP_USER} ${WP_EMAIL} --user_pass=${WP_USER_PASSWOR
 
 sed -i 's/listen = \/run\/php\/php7.4-fpm.sock/listen = 9000/g' /etc/php/7.4/fpm/pool.d/www.conf && mkdir /run/php
 
+echo "			Starting PHP-FPM.."
 exec php-fpm7.4 -F
